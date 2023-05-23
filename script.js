@@ -27,112 +27,33 @@ Enfin nous supprimons l'élément li de l'élément ul avec la méthode removeCh
 ET VOILA ! Vous avez fait une todo list en javascript !
 */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const task = document.querySelector("#task-form");
+let taskInput = document.querySelector("#task-input");
+let taskList = document.querySelector("#task-list");
+
+task.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  let taskValues = taskInput.value;
+
+  if (taskValues !== "") {
+    let notEmpty = document.createElement("li");
+    notEmpty.innerHTML = taskInput.value;
+    let deleteButton = document.createElement("button");
+    deleteButton.innerHTML = "Clique ici si t'es un homme";
+    notEmpty.appendChild(deleteButton);
+    taskList.appendChild(notEmpty);
+    taskInput.value = "";
+  }
+});
+
+taskList.addEventListener("click", (e) => {
+  if ((e.target.tagName = "BUTTON")) {
+    let li = e.target.parentNode;
+    let ul = li.parentNode;
+    ul.removeChild(li);
+  }
+});
 
 //--------------------------------------------------------------------------------------------------------------------------//
 //--------------------------------------------------------------------------------------------------------------------------//
@@ -145,11 +66,6 @@ ET VOILA ! Vous avez fait une todo list en javascript !
 //--------------------------------------------------------------------------------------------------------------------------//
 //--------------------------------------------------------------------------------------------------------------------------//
 //--------------------------------------------------------------------------------------------------------------------------//
-
-
-
-
-
 
 /*
 
